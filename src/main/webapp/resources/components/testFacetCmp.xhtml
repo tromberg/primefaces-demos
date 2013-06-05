@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:composite="http://java.sun.com/jsf/composite" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:a="http://www.cosmosworldwide.com/2012/TOS/fw/web/components"
+	xmlns:acmp="http://java.sun.com/jsf/composite/components">
+<head>
+</head>
+<body>
+	<composite:interface>
+		<composite:attribute name="search" type="java.util.Map"></composite:attribute>
+		<composite:facet name="searchFields" />
+	</composite:interface>
+	<composite:implementation>
+		<h:form id="frmFilterPanel">
+				Input outside Facet: <h:inputText id="outsideFacet" value="#{dummyBean.theMap.outsideFacet}" />
+			<composite:renderFacet name="searchFields" />
+			<h:commandButton value="Submit" action="#{dummyBean.printResult}"></h:commandButton>
+		</h:form>
+	</composite:implementation>
+</body>
+</html>

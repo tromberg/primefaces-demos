@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- No NPE when we don't use a composite component -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:comp="http://java.sun.com/jsf/composite">
+	<f:view>
+		<h:head>
+		</h:head>
+		<h3>No NPEin Autocomplete when no composite component is used to put Autocomplete inside Overlay and Tabbed View</h3>
+		<h:form id="frmDetail">
+			<p:commandButton id="filterPanelButton" icon="ui-image-filter" onclick="return false;"></p:commandButton>
+			<p:overlayPanel id="searchPanel" for="filterPanelButton" dynamic="true" widgetVar="searchPanel"
+				onShow="PrimeFaces.focus(null, this.id);" appendToBody="true">
+				<h:form id="frmFilterPanel">
+					<p:tabView id="tabSearchPanel">
+						<p:tab title="Search">
+							<p:panelGrid columns="8" styleClass="ui-atoms-fieldset" id="newSearchPanelGrid">
+								<p:autoComplete id="selCountry2" completeMethod="#{testBean.completeCountries}" value="#{testBean.country}">
+								</p:autoComplete>
+							</p:panelGrid>
+						</p:tab>
+					</p:tabView>
+				</h:form>
+			</p:overlayPanel>
+		</h:form>
+	</f:view>
+</html>
+			
